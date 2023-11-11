@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Groovin Bootstrap Template - Index</title>
+    <title>Unik Robotik</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -29,8 +29,9 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <script type="text/javascript">
-        function kirim(name, email, telp, message, addrs) {
-            window.open("https://wa.me/+62816693347?text=Mohon Maaf Pak, Saya " + name + ", Email: " + email + ", No.Telepon: " + telp + ", Alamat: " + addrs + ", " + message);
+        function kirim(name, email, telp, message, addrs, pilihan) {
+            window.open("https://wa.me/+62816693347?text=Mohon Maaf Pak, Saya " + name + ", Email: " + email + ", No.Telepon: " + telp + ", Alamat: " + addrs + ", Tujuan:" + pilihan + ", " + message);
+
             window.location.href = "index.php";
         }
     </script>
@@ -51,10 +52,11 @@
     $telp = isset($_GET['telp']);
     $message = isset($_GET['message']);
     $addrs = isset($_GET['addrs']);
+    $pilihan = isset($_GET['pilihan']);
 
-    if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['telp']) && isset($_GET['message']) && isset($_GET['addrs'])) {
+    if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['telp']) && isset($_GET['message']) && isset($_GET['addrs']) && isset($_GET['pilihan'])) {
         echo '<script type="text/javascript">
-        kirim("' . $_GET['name'] . '","' . $_GET['email'] . '","' . $_GET['telp'] . '","' . $_GET['message'] . '","' . $_GET['addrs'] . '");
+        kirim("' . $_GET['name'] . '","' . $_GET['email'] . '","' . $_GET['telp'] . '","' . $_GET['message'] . '","' . $_GET['addrs'] . '","' . $_GET['pilihan'] . '");
 </script>';
     }
     ?>
@@ -435,7 +437,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
                         <div class="member">
-                            <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Jatmiko</h4>
@@ -453,7 +455,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
                         <div class="member">
-                            <img src="assets/img/team/team-4.png" class="img-fluid" alt="">
+                            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Ririn</h4>
@@ -471,7 +473,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
                         <div class="member">
-                            <img src="assets/img/team/team-4.png" class="img-fluid" alt="">
+                            <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Amanda Jepson</h4>
@@ -678,8 +680,8 @@
                     <div class="container">
 
                         <div class="section-title">
-                            <h2>Mendaftar Sebagai Pengajar</h2>
-                            <p>Jika anda berminat mengajar di Unik Robot silahkan kirimkan biodata melalui form dibawah ini, jika kami sedang membutuhkan pengajar maka akan kami tindaklanjuti.</p>
+                            <h2>Join Dengan kami</h2>
+                            <p>Jika anda berminat mengajar atau menjalin kerjasama dengan kami di Unik Robot silahkan kirimkan biodata melalui form dibawah ini, jika kami sedang membutuhkan pengajar maka akan kami tindaklanjuti.</p>
                         </div>
 
                         <div class="form">
@@ -696,10 +698,16 @@
                                     <input type="tel" class="form-control" name="telp" id="telp" placeholder="Telepon" required>
                                 </div>
                                 <div class="form-group mt-3">
+                                    <select id="pilihan" name="pilihan" class="form-select">
+                                        <option value="Pengajar">Pengajar</option>
+                                        <option value="Kerjasama">Kerjasama</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-3">
                                     <textarea class="form-control" name="addrs" id="addrs" rows="5" placeholder="Alamat Lengkap" required></textarea>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Pesan" required></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Tulis tujuan anda disini" required></textarea>
                                 </div><br>
                                 <div class="btn-wrap">
                                     <div class="text-center">
