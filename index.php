@@ -28,13 +28,6 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <script type="text/javascript">
-        function kirim(name, email, telp, message, addrs, pilihan) {
-            window.open("https://wa.me/+62816693347?text=Mohon Maaf Pak, Saya " + name + ", Email: " + email + ", No.Telepon: " + telp + ", Alamat: " + addrs + ", Tujuan:" + pilihan + ", " + message);
-
-            window.location.href = "index.php";
-        }
-    </script>
     <!-- =======================================================
   * Template Name: Groovin
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -46,20 +39,7 @@
 
 <body>
     <!-- ======= Header ======= -->
-    <?php
-    $name = isset($_GET['name']);
-    $email = isset($_GET['email']);
-    $telp = isset($_GET['telp']);
-    $message = isset($_GET['message']);
-    $addrs = isset($_GET['addrs']);
-    $pilihan = isset($_GET['pilihan']);
-
-    if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['telp']) && isset($_GET['message']) && isset($_GET['addrs']) && isset($_GET['pilihan'])) {
-        echo '<script type="text/javascript">
-        kirim("' . $_GET['name'] . '","' . $_GET['email'] . '","' . $_GET['telp'] . '","' . $_GET['message'] . '","' . $_GET['addrs'] . '","' . $_GET['pilihan'] . '");
-</script>';
-    }
-    ?>
+    
     <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
@@ -685,7 +665,7 @@
                         </div>
 
                         <div class="form">
-                            <form method="get" action="index.php">
+                            <form method="GET" action="index.php">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" class="form-control" id="name" placeholder="nama" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
@@ -711,7 +691,7 @@
                                 </div><br>
                                 <div class="btn-wrap">
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-success"><i class="bi bi-send"></i> Kirim Permintaan</button>
+                                        <button type="button" class="btn btn-success" onclick="kirim()"><i class="bi bi-send"></i> Kirim Permintaan</button>
 
                                     </div>
                                 </div>
@@ -812,6 +792,23 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <script type="text/javascript">
+        function kirim() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let telp = document.getElementById('telp').value;
+            let addrs = document.getElementById('addrs').value;
+            let pilihan = document.getElementById('pilihan').value;
+            let message = document.getElementById('message').value;
+            if(name != '' && email !='' && message !=''){
+            window.open("https://wa.me/+62816693347?text=Mohon Maaf Pak, Saya " + name + ", Email: " + email + ", No.Telepon: " + telp + ", Alamat: " + addrs + ", Tujuan:" + pilihan + ", " + message);
+
+            window.location.href = "index.php";
+            }else{
+                alert('Isi Semua data sebelum kirim');
+            }
+        }
+    </script>
 </body>
 
 </html>
